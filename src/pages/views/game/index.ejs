@@ -16,11 +16,18 @@
       <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
         <thead class="ltr:text-left rtl:text-right">
           <tr>
-            <th class="px-4 py-2 font-medium text-gray-900">Video Juegos
-                
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              Nombre
             </th>
-            <th class="px-4 py-2 font-medium text-gray-900">Contenido</th>
-          </tr>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              informacion
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              Estudio
+            </th>
+            <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+              Precio
+            </th>
         </thead>
         <tbody class="divide-y divide-gray-200">
           <% for (const game of games) { %>
@@ -29,7 +36,7 @@
                 <%= game.nameGames %>
               </td>
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-                <%= game.infogGames %>
+                <%= game.infoGames %>
               </td>
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">
                 <%= game.studiGames %>
@@ -37,7 +44,18 @@
               <td class="whitespace-nowrap px-4 py-2 text-gray-700">
                 <%= game.priceGames %>
               </td>
-                
+              <td class="whitespace-nowrap w-4">
+                <a href="game/edit/<%= game._id %>"
+                  class="w-20 inline-block rounded bg-blue-600 px-4 py-2 text-xs font-medium text-white text-center hover:bg-indigo-700">
+                  Editar
+                </a>
+              </td>
+              <td class="whitespace-nowrap w-4">
+                <button type="button" href="game/delete/<%= game._id %>" onclick="deleteGame('<%= game._id %>')"
+                  class="w-20 inline-block rounded bg-blue-600 px-4 py-2 text-xs font-medium text-white text-center hover:bg-indigo-700">
+                  Eliminar
+                </button>
+              </td>
             </tr>
             <% } %>
         </tbody>
